@@ -1,0 +1,88 @@
+//Factorial of number:
+class Solution:
+    def factorial(self, n):
+        ans = 1
+        for i in range(1,n+1) :
+            ans *= i
+        return ans 
+
+//Valid Palindrome:
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        phrase = ""
+        s = s.lower()
+        for i in range(len(s)):
+            if s[i].isalnum():
+                phrase += s[i]      
+        if phrase == phrase[::-1]:
+            return True
+        return False       
+
+// Print numbers from 1 to N without using loops:
+class Solution:
+    def printNumbers(self, n):
+        if n == 1:
+            print(1)
+        else:
+            self.printNumbers(n-1)
+            print(n)   
+
+// Print numbers from N to 1 without using loops:
+class Solution:
+    def printNumbers(self, n):
+        if n == 1:
+            print(1)
+        else:
+            print(n)   
+            self.printNumbers(n-1) 
+
+//Sum of First N Numbers:
+class Solution:
+    def NnumbersSum(self, N):
+        sum = 0
+        for i in range(N+1):
+            sum += i 
+        return sum
+
+//reverse an array inplace:
+class Solution:
+    def reverse(self, arr: list, n: int) -> None:
+        left = 0
+        right = n-1
+        while(left < right):
+            arr[left],arr[right] = arr[right],arr[left]
+            left += 1
+            right -= 1
+
+/**/ reverse using another list:
+class Solution:
+    def reverse(self, arr: list, n: int) -> None:  
+        result = []
+        for i in range(n-1,-1,-1) :
+            result.append(arr[i])
+        return result     
+
+//Fibonacci number:
+class Solution:
+    def fib(self, n: int) -> int:
+        first = 0
+        second = 1
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        while(n > 1):
+            third = first + second
+            first = second
+            second = third
+            n -= 1
+        return third 
+//alternate:
+class Solution:
+    def fib(self, n: int) -> int:
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        else:
+            return self.fib(n-1) + self.fib(n-2)                                           
