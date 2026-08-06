@@ -9,7 +9,7 @@ class Solution:
             count += 1
         return count
               
-//Palindrome Number
+//leetcode : 9 (Palindrome Number):
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         count = 0
@@ -24,7 +24,7 @@ class Solution:
             return True  
         return False        
 
-//Reverse problem:
+//leetcode: 7 (Reverse problem):
 class Solution:
     def reverse(self, x: int) -> int:
         count = 0
