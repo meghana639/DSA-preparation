@@ -1,0 +1,74 @@
+//Largest element in the array:
+class arrays{
+    public static int largestElement(int[] nums){
+        int n = nums.length;
+        int largest = nums[0];
+        for(int i=1;i<n;i++){
+            if(nums[i] > largest){
+                largest = nums[i];
+            }
+        }
+        return largest;
+    }
+    public static void main(String[]args){
+        int[] nums = {10,2,5,6,7};
+        int ans = largestElement(nums);
+        System.out.print("the largest is: "+ ans);
+    }
+}
+
+//Second largest element:
+class arrays {
+    public static int secondLargestElement(int[] nums){
+        int largest = nums[0];
+        int second_largest = Integer.MIN_VALUE;
+        int n = nums.length;
+        for(int i=1;i<n;i++) {
+            if(nums[i] > largest){
+                second_largest  = largest;
+                largest  =nums[i];
+            }
+            else if(nums[i] < largest && nums[i] > second_largest){
+                second_largest = nums[i];
+            }
+        }
+        if(second_largest == Integer.MIN_VALUE) {
+            return -1;
+        }
+        else {
+            return second_largest;
+        }
+    }
+    public static void main(String[] args) {
+        int [] nums = {10,10,10,10,10};
+        int ans = secondLargestElement(nums);
+        System.out.print("second largest element is : "+ ans);
+    }
+}
+
+//leetcode:1752 (check if array is sorted and rotated):
+class arrays {
+    public static boolean check(int[] nums){
+        int n = nums.length;
+        int count = 0;
+        for(int i=0;i<n-1;i++){
+            if(nums[i] > nums[i+1]){
+                count++;
+            }
+        }
+        if(nums[n-1] > nums[0]){
+            count++;
+        }
+        if(count <= 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void main(String[] args){
+        int [] nums = {3,4,5,1,2};
+        boolean ans =  check(nums);
+        System.out.print(ans);
+    }
+}
