@@ -6,7 +6,7 @@ class Solution:
             ans *= i
         return ans 
 
-//Valid Palindrome:
+//leetcode: 125 (Valid Palindrome):
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         phrase = ""
@@ -62,7 +62,7 @@ class Solution:
             result.append(arr[i])
         return result     
 
-//Fibonacci number:
+//leetcode: 509 (Fibonacci number):
 class Solution:
     def fib(self, n: int) -> int:
         first = 0
