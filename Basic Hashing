@@ -12,7 +12,7 @@ class Solution:
             result.append([key,value])
         return result    
 
-//Frequency of the most frequent element:
+//leetcode: 1838 (Frequency of the most frequent element):
 class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
         nums.sort()
