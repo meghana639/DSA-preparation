@@ -148,3 +148,174 @@ class Main {
         }
     }
 }
+
+//linear search:
+class Main {
+    public static int linearsearch(int[] nums,int target) {
+        int n = nums.length;
+        for(int i=0;i<n;i++){
+            if(nums[i] == target){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        int [] nums = {2,3,4,5,6,7};
+        int target = 3;
+        int ans = linearsearch(nums, target);
+        System.out.print(" "+ans);
+    }
+}
+
+//union of two sorted arrays:
+import java.util.Arrays;
+class Main {
+    public static int[] unionArray(int[] nums1, int[] nums2) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int[] ans = new int[nums1.length + nums2.length];
+        // Compare both arrays
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] < nums2[j]) {
+                if (k == 0 || ans[k - 1] != nums1[i]) {
+                    ans[k] = nums1[i];
+                    k++;
+                }
+                i++;
+            } else if (nums1[i] > nums2[j]) {
+                if (k == 0 || ans[k - 1] != nums2[j]) {
+                    ans[k] = nums2[j];
+                    k++;
+                }
+                j++;
+            } else {
+                if (k == 0 || ans[k - 1] != nums1[i]) {
+                    ans[k] = nums1[i];
+                    k++;
+                }
+                i++;
+                j++;
+            }
+        }
+        // Copy remaining elements of nums1
+        while (i < nums1.length) {
+            if (k == 0 || ans[k - 1] != nums1[i]) {
+                ans[k] = nums1[i];
+                k++;
+            }
+            i++;
+        }
+        // Copy remaining elements of nums2
+        while (j < nums2.length) {
+            if (k == 0 || ans[k - 1] != nums2[j]) {
+                ans[k] = nums2[j];
+                k++;
+            }
+            j++;
+        }
+        // Create the final array of correct size
+        int[] result = new int[k];
+        for (int x = 0; x < k; x++) {
+            result[x] = ans[x];
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int[] nums1 = {1, 4, 5, 6, 7};
+        int[] nums2 = {2, 3, 4, 4, 5};
+        int[] ans = unionArray(nums1, nums2);
+        System.out.println(Arrays.toString(ans));
+    }
+}
+
+//find the missing number:
+class Main{
+    public static int missingnumber(int[] nums) {
+        int n = nums.length;
+        for(int i=0;i<=n;i++){
+            boolean found = false;
+            for(int j=0;j<n;j++){
+                if(nums[j] == i){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void main(String[]args){
+        int[] nums = {0,1,2,4};
+        int ans = missingnumber(nums);
+        System.out.print(ans);
+    }
+}
+
+//leetcode: 485 (max consecutive ones):
+class Main{
+    public static int maxconsecutiveones(int[] nums){
+        int n = nums.length;
+        int count = 0;
+        int max = 0;
+        for(int i=0;i<n;i++){
+            if(nums[i] == 1){
+                count ++;
+                max = Math.max(max,count);
+            }
+            else{
+                count = 0;
+            }
+        }
+        return max;
+    }
+    public static void main(String[]args){
+        int [] nums = {1,0,1,1,0,1};
+        int ans = maxconsecutiveones(nums);
+        System.out.print(ans);
+    }
+}
+
+//single number:
+class Main {
+    public static int singlenumber(int[] nums){
+        int n = nums.length;
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            ans = ans ^ nums[i];
+        }
+        return ans;
+    }
+    public static void main(String[] args){
+        int []nums = {2,2,1};
+        int sol = singlenumber(nums);
+        System.out.print(sol);
+    }
+}
+
+//Longest subarray with sum K:
+class Main {
+    public static int longestsubarray(int[] nums, int k){
+        int n = nums.length;
+        int max_length = 0;
+        for(int i=0;i<n;i++){
+            int current_sum = 0;
+            for(int j=i;j<n;j++){
+                current_sum += nums[j];
+                if(current_sum == k){
+                    max_length = Math.max(max_length,j-i+1);
+                }
+            }
+        }
+        return max_length;
+    }
+    public static void main(String[]args){
+        int [] nums = {10, 5, 2, 7, 1, 9};
+        int k = 15;
+        int ans = longestsubarray(nums, k);
+        System.out.print(ans);
+    }
+}
