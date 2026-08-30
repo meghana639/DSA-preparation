@@ -97,31 +97,29 @@ class arrays{
 }
 
 // leetcode: 189 (rotated array):
-class arrays {
+import java.util.*;
+class Main {
     public static void rotate(int[] nums, int k) {
         int n = nums.length;
-        int j = 0;
         k = k % n;
-        int [] temp = new int[n];
-        for(int i=n-k;i<n;i++) {
-            temp[j] = nums[i];
-            j++;
-        }
-        for(int i=0;i<n-k;i++){
-            temp[j] = nums[i];
-            j++;
-        }
-        for(int i=0;i<n;i++){
-            nums[i] = temp[i];
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+    }
+    public static void reverse(int[] nums, int left,int right){
+        while(left<right){
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left ++;
+            right --;
         }
     }
     public static void main(String[] args){
-        int [] nums = {20,12,23,34};
-        int k = 2;
-        rotate(nums, k);
-        for (int num : nums) {
-            System.out.print(num + " ");
-        }
+        int[] nums = {1,2,3,4,5,6,7};
+        int k = 3;
+        rotate(nums,k);
+        System.out.println(Arrays.toString(nums));
     }
 }
 
