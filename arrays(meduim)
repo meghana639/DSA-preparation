@@ -33,6 +33,7 @@ class Main {
 }
 
 //leetcode: 75 (sort colors):
+//Better solution:
 import java.util.Arrays;
 class Main {
     public static void sortcolors(int[] nums){
@@ -65,7 +66,36 @@ class Main {
     }
 }
 
+//optimal solution:
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int low = 0; //where should 0 go
+        int high = n-1;  // where is the element CURRENTLY placed
+        int mid = 0;  //where the next 2 should go
+        while(mid <= high){
+            if(nums[mid] == 0){
+                int temp = nums[mid];
+                nums[mid] = nums[low];
+                nums[low] = temp;
+                low ++;
+                mid ++;
+            }
+            else if(nums[mid] == 1){
+                mid ++;
+            }
+            else {
+                int temp = nums[mid];
+                nums[mid] = nums[high];
+                nums[high] = temp;
+                high --;
+            }
+        }
+    }
+}
+
 //leetcode: 169 (majority element):
+//brute force solution:
 class Main{
     public static int majorityelement(int[] nums){
         int n = nums.length;
@@ -86,6 +116,23 @@ class Main{
         int [] nums = {3,2,3};
         int ans = majorityelement(nums);
         System.out.print(ans);
+    }
+}
+
+//better solution:
+class Solution {
+    public int majorityElement(int[] nums) {
+        int n = nums.length;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i=0;i<n;i++){
+            int old_frequency = map.getOrDefault(nums[i],0);
+            int new_frequency = old_frequency + 1;
+            map.put(nums[i], new_frequency);
+            if(new_frequency > n/2){
+                return nums[i];
+            }
+        }
+        return -1;
     }
 }
 
