@@ -1,3 +1,10 @@
+Selection Sort	🔍 Find the smallest and place it correctly.
+Bubble Sort	🫧 Compare neighbours; biggest bubbles to the end.
+Insertion Sort	🃏 Insert a new card into an already sorted hand.
+Merge Sort	✂️ Divide into halves, then merge them back in order.
+Quick Sort	📍 Put one pivot in its correct place, then sort the two sides.
+
+
 //Insertion sort:
 class insertionsort {
     public static int[] insertionSort(int[] nums) {
