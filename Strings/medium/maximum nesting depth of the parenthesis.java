@@ -1,4 +1,5 @@
 //leetcode: 1614
+import java.util.Scanner;
 class Main{
     public static int maxdept(String s){
         int max = 0;
@@ -17,7 +18,8 @@ class Main{
         return max;
     }
     public static void main(String[] args){
-        String s = "()(())((()()))";
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
         int result = maxdept(s);
         System.out.println(result);
     }
