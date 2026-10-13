@@ -1,4 +1,5 @@
 //leetcode: 35
+//lower bound = arr[idx] >= n
 import java.util.Scanner;
 class Main{
     public static  int searchinsert(int[] nums,int target){
