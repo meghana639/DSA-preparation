@@ -1,3 +1,4 @@
+//upper bound = arr[idx] < n
 import java.util.Scanner;
 class Main {
     public static int search(int[] nums, int target) {
